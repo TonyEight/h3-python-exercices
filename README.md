@@ -64,6 +64,6 @@ Dans le dossier __initiation-django__ vous retrouverez le code des trois premiè
 
 Deux packages ici, `iterables` et `poo`.
 
-Le premier regroupe les quelques exemples manipulations que nous avons vues ensemble sur les datastructures itérables. On retrouvera notamment __les listes en intention__.
+Le premier regroupe les quelques exemples de manipulations que nous avons vues ensemble sur les datastructures _itérables_. On retrouvera notamment __les listes en intention__.
 
 Le deuxième contient l'ensemble des exemples utilisés pour aborder les notions de __namespace__ et de __scope__.
