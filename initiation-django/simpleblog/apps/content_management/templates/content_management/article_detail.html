@@ -1,0 +1,42 @@
+{% extends 'base_front.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg"><h1>{{ article.title }}</h1></div>
+</div>
+<div class="row">
+  <div class="col-lg">
+    <span class="badge badge-pill badge-dark">
+    {% with cat_count=article.categories.count %}
+    Categor{{ cat_count|pluralize:"y,ies" }}
+    {% endwith %}
+    </span>
+    {% for category in article.categories.all %}
+    <a href="{% url 'content_management:category-detail' category.pk %}"
+       class="badge badge-pill {% if category.pk == current_category.pk %}badge-primary{% else %}badge-light{% endif %}">
+       {{ category.label }}
+    </a>
+    {% endfor %}
+  </div>
+</div>
+<div class="row page-content">
+  <div class="col-lg">{{ article.content|safe }}</div>
+</div>
+{% if related_articles %}
+<div class="row page-content">
+  <div class="col-lg"><h3>In the same category:</h3></div>
+</div>
+<div class="row">
+  {% for article in related_articles %}
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ article.title }}</h5>
+        <a href="{% url 'content_management:article-detail' article.pk %}?category={{ current_category.pk }}" class="btn btn-dark">Read more</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

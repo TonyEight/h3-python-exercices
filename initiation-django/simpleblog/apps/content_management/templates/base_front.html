@@ -15,7 +15,7 @@
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="{% url 'home' %}">SimpleBlog</a>
+      <a class="navbar-brand" href="{% url 'content_management:home' %}">SimpleBlog</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -28,7 +28,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="categoriesMenuLink">
               {% for category in categories %}
-              <a class="dropdown-item" href="#">{{ category.label }}</a>
+              <a class="dropdown-item" href="{% url 'content_management:category-detail' category.pk %}">{{ category.label }}</a>
               {% endfor %}
             </div>
           </li>
@@ -43,9 +43,10 @@
     </div>
 
     <!-- Footer -->
-    <div class="container" id="footer">
+    <div class="container-fluid bg-dark text-white" id="footer">
       <div class="row">
-        <div class="col-lg">&copy; 2018 - SimpleBlog</div>
+        <div class="col-lg bold text-center">&copy; 2018 - SimpleBlog</div>
+        <div class="col-lg italic text-center">A simple Django exercice for H3.</div>
       </div>
     </div>
 

@@ -8,6 +8,18 @@
   margin-bottom: 1rem;
 }
 
-#footer {
+.bold {
   font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.page-content {
+  margin-top: 2.5rem !important;
+}
+
+#footer {
+  padding: 4rem;
 }

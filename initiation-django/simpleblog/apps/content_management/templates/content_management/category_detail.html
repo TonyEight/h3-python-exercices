@@ -1,0 +1,19 @@
+{% extends 'base_front.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg"><h1>Category: {{ category.label }}</h1></div>
+</div>
+<div class="row page-content">
+  {% for article in category.articles.all %}
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ article.title }}</h5>
+        <a href="{% url 'content_management:article-detail' article.pk %}?category={{ category.pk }}" class="btn btn-dark">Read more</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
