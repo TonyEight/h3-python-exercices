@@ -28,8 +28,7 @@ class Article(models.Model):
     )
     slug = models.SlugField(
         verbose_name='slug',
-        max_length=100,
-        editable=False
+        max_length=100
     )
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -57,4 +56,4 @@ class Article(models.Model):
     class Meta:
         verbose_name = 'Article'
         verbose_name_plural = 'Articles'
-        ordering = ['updated_at', 'created_at',]
+        ordering = ['-updated_at', '-created_at',]
