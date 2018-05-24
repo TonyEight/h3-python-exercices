@@ -1,0 +1,16 @@
+{% extends 'base_front.html' %}
+
+{% block content %}
+<div class="row">
+  {% for category in categories %}
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ category.label }}</h5>
+        <a href="#" class="btn btn-dark">Read more</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
