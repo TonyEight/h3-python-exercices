@@ -6,17 +6,29 @@
 </div>
 <div class="row">
   <div class="col-lg">
-    <span class="badge badge-pill badge-dark">
-    {% with cat_count=article.categories.count %}
-    Categor{{ cat_count|pluralize:"y,ies" }}
-    {% endwith %}
-    </span>
-    {% for category in article.categories.all %}
-    <a href="{% url 'content_management:category-detail' category.pk %}"
-       class="badge badge-pill {% if category.pk == current_category.pk %}badge-primary{% else %}badge-light{% endif %}">
-       {{ category.label }}
-    </a>
-    {% endfor %}
+    <h5>
+      <span class="badge badge-pill badge-dark">
+      {% with cat_count=article.categories.count %}
+      Categor{{ cat_count|pluralize:"y,ies" }}
+      {% endwith %}
+      </span>
+      {% for category in article.categories.all %}
+      <a href="{% url 'content_management:category-detail' category.pk %}"
+         class="badge badge-pill {% if category.pk == current_category.pk %}badge-primary{% else %}badge-light{% endif %}">
+         {{ category.label }}
+      </a>
+      {% endfor %}
+    </h5>
+  </div>
+</div>
+<div class="row page-content">
+  <div class="col-lg">
+    <span class="badge badge-pill badge-light italic">Submitted by <u>{{ article.author }}</u></span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg">
+    <span class="badge badge-pill badge-light italic">Last update: {{ article.updated_at }} - Creation: {{ article.created_at }}</span>
   </div>
 </div>
 <div class="row page-content">
