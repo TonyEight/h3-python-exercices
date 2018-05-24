@@ -90,3 +90,7 @@ pip-selfcheck.json
 
 # Rope project settings
 .ropeproject
+
+# Databases
+*.db
+*.sqlite*
