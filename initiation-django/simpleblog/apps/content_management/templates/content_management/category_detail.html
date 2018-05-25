@@ -1,4 +1,5 @@
 {% extends 'base_front.html' %}
+{% load static humanize %}
 
 {% block content %}
 <div class="row">
@@ -7,11 +8,15 @@
 <div class="row page-content">
   {% for article in category.articles.all %}
   <div class="col-sm-6">
-    <div class="card">
+    <div class="card text-center">
+      <img class="card-img-top"
+           src="{% if article.featured_picture %}{{ article.featured_picture.url }}{% else %}{% static 'img/placeholder-image.jpg' %}{% endif %}"
+           alt="Featured Image">
       <div class="card-body">
         <h5 class="card-title">{{ article.title }}</h5>
         <a href="{% url 'content_management:article-detail' article.pk %}?category={{ category.pk }}" class="btn btn-dark">Read more</a>
       </div>
+      <div class="card-footer text-muted">{{ article.updated_at|naturaltime }}</div>
     </div>
   </div>
   {% endfor %}

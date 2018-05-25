@@ -26,6 +26,12 @@ class Article(models.Model):
     content = models.TextField(
         verbose_name='content'
     )
+    featured_picture = models.ImageField(
+        verbose_name='featured picture',
+        null=True,
+        blank=True,
+        upload_to='featured_pictures/%Y/'
+    )
     slug = models.SlugField(
         verbose_name='slug',
         max_length=100
