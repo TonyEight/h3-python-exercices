@@ -15,17 +15,17 @@
 <div class="row">
   <div class="col-lg">
     <h5>
-      <span class="badge badge-pill badge-dark">
       {% with cat_count=article.categories.count %}
+      <span class="badge badge-pill badge-dark">
       Categor{{ cat_count|pluralize:"y,ies" }}
-      {% endwith %}
       </span>
       {% for category in article.categories.all %}
       <a href="{% url 'content_management:category-detail' category.pk %}"
-         class="badge badge-pill {% if category.pk == current_category.pk %}badge-primary{% else %}badge-light{% endif %}">
+         class="badge badge-pill {% if category.pk == current_category.pk and cat_count > 1 %}badge-primary{% else %}badge-light{% endif %}">
          {{ category.label }}
       </a>
       {% endfor %}
+      {% endwith %}
     </h5>
   </div>
 </div>
@@ -44,7 +44,8 @@
 </div>
 {% if related_articles %}
 <div class="row page-content">
-  <div class="col-lg"><h3>In the same category:</h3></div>
+  <div class="col-lg"><h3>Read more articles in <a href="{% url 'content_management:category-detail' current_category.pk %}"
+     class="badge badge-pill badge-primary">{{ current_category.label }}</a> category</h3></div>
 </div>
 <div class="row">
   {% for related_article in related_articles %}

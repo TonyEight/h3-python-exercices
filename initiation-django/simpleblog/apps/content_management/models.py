@@ -8,6 +8,9 @@ class Category(models.Model):
         max_length=255,
         unique=True
     )
+    description = models.TextField(
+        verbose_name='description'
+    )
 
     def __str__(self):
         return '{label}'.format(label=self.label)

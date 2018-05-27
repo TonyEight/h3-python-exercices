@@ -10,6 +10,7 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{ category.label }}</h5>
+        <p class="card-text">{{ category.description }}</p>
         <a href="{% url 'content_management:category-detail' category.pk %}" class="btn btn-dark">Read more</a>
       </div>
     </div>

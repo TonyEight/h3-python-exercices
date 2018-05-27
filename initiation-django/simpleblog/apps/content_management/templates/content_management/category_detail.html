@@ -5,6 +5,11 @@
 <div class="row">
   <div class="col-lg"><h1>Category: {{ category.label }}</h1></div>
 </div>
+<div class="row">
+  <div class="col-lg">
+    <p>{{ category.description }}</p>
+  </div>
+</div>
 <div class="row page-content">
   {% for article in category.articles.all %}
   <div class="col-sm-6">
