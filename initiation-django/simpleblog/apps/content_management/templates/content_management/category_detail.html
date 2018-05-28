@@ -1,6 +1,8 @@
 {% extends 'base_front.html' %}
 {% load static humanize %}
 
+{% block extra-title %} &middot; {{ category.label }}{% endblock %}
+
 {% block content %}
 <div class="row">
   <div class="col-lg"><h1>Category: {{ category.label }}</h1></div>

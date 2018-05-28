@@ -1,6 +1,8 @@
 {% extends 'base_front.html' %}
 {% load static humanize %}
 
+{% block extra-title %} &middot; {{ article.title }}{% endblock %}
+
 {% block content %}
 {% if article.featured_picture %}
 <div class="row">

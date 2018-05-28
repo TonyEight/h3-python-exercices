@@ -37,7 +37,8 @@ class Article(models.Model):
     )
     slug = models.SlugField(
         verbose_name='slug',
-        max_length=100
+        max_length=100,
+        unique=True
     )
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
